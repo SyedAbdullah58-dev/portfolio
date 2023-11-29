@@ -75,11 +75,14 @@
                 color="#FBDF7E"
                 class="text-white"
             ></v-btn>
-            <h3 class="ml-3 mt-4">Web Design</h3>
+            <h3 class="ml-3 mt-4">Web Development</h3>
+            <div id="services">
             <p class="text-grey ml-3 mt-4 text-caption">
-              Lorem, ipsum dolor sit amet <br />consectetur adipisicing
-              <br />consectetur adipis
-            </p>
+              I specialize in web development, leveraging a powerful tech stack to deliver efficient solutions.
+              Proficient in .NET Core for server-side development  SQL Server for robust data management,and Entity Framework for seamless database interaction.
+              Complementing this, I use Vue.js for dynamic and responsive front-end experiences.
+              Let's collaborate to elevate your web presence and functionality.
+            </p></div>
           </div>
           <div class="child">
             <v-btn
@@ -87,24 +90,13 @@
                 color="#FBDF7E"
                 class="text-white"
             ></v-btn>
-            <h3 class="ml-3 mt-4">App Design</h3>
+            <h3 class="ml-3 mt-4">Mobile App Development</h3>
             <p class="text-grey ml-3 mt-4 text-caption">
               Lorem, ipsum dolor sit amet <br />consectetur adipisicing
               <br />consectetur adipis
             </p>
           </div>
-          <div class="child">
-            <v-btn
-                icon="fas fa-camera"
-                color="#FBDF7E"
-                class="text-white"
-            ></v-btn>
-            <h3 class="ml-3 mt-4">Photography</h3>
-            <p class="text-grey ml-3 mt-4 text-caption">
-              Lorem, ipsum dolor sit amet <br />consectetur adipisicing
-              <br />consectetur adipis
-            </p>
-          </div>
+
         </v-col>
       </v-row>
       <v-divider></v-divider>
@@ -216,5 +208,9 @@ setup(){
   text-align: center;
   padding: 0 200px;
   background-color: #f5f5f5;
+}
+#services{
+  background: brown;
+width: 300px;
 }
 </style>
