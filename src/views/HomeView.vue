@@ -39,7 +39,7 @@
    <h4 class="mt-n4">I am a Software Engineer</h4>
       <h4 class="">Turning your Idea into reality</h4>
       <p class="text-grey">
-        Passionate software engineer with a knack for building cutting-edge applications using the latest technologies. With expertise in C#, Dart, Flutter, .NET Core, and SQL Server, I bring a wealth of knowledge to every project I undertake. Whether it's developing robust backend systems or creating engaging user interfaces, I'm always up for a challenge.
+        Passionate software engineer with a knack for building cutting-edge applications using the latest technologies. With expertise in<span style="font-weight: bold"> C#, Dart, Flutter,.NET Core , and SQL Server</span>, I bring a wealth of knowledge to every project I undertake. Whether it's developing robust backend systems or creating engaging user interfaces, I'm always up for a challenge.
       </p>
       <br />
       <p class="text-grey">
@@ -77,11 +77,10 @@
             ></v-btn>
             <h3 class="ml-3 mt-4">Web Development</h3>
             <div id="services">
-            <p class="text-grey ml-3 mt-4 text-caption">
+            <p class="text-black ml-3 mt-4 text-caption">
               I specialize in web development, leveraging a powerful tech stack to deliver efficient solutions.
-              Proficient in .NET Core for server-side development  SQL Server for robust data management,and Entity Framework for seamless database interaction.
-              Complementing this, I use Vue.js for dynamic and responsive front-end experiences.
-              Let's collaborate to elevate your web presence and functionality.
+              Proficient in .NET Core for server-side development with SQL Server,
+              Entity Framework, and Vue js for the frontend.
             </p></div>
           </div>
           <div class="child">
@@ -91,15 +90,25 @@
                 class="text-white"
             ></v-btn>
             <h3 class="ml-3 mt-4">Mobile App Development</h3>
-            <p class="text-grey ml-3 mt-4 text-caption">
-              Lorem, ipsum dolor sit amet <br />consectetur adipisicing
-              <br />consectetur adipis
-            </p>
+            <div id="services">
+              <p class="text-black ml-3 mt-4 text-caption">
+                I specialize in cross-platform mobile app development using Flutter,
+                harnessing the power of a robust tech stack to deliver efficient solutions.
+                Proficient in utilizing Flutter for the frontend and Firebase for backend services.
+              </p></div>
           </div>
-
         </v-col>
       </v-row>
       <v-divider></v-divider>
+    </div>
+  </v-col>
+  <v-col cols="12" sm="12" id="myservices">
+    <div class="d-flex justify-center mb-6">
+      <v-btn color="#FBDF7E" class="mr-2">All</v-btn>
+      <v-btn class="mr-2" variant="tonal">Web Design</v-btn>
+      <v-btn class="mr-2" variant="tonal">Front Design</v-btn>
+      <v-btn class="mr-2" variant="tonal"> Photography</v-btn>
+      <v-btn variant="tonal"> Illustration</v-btn>
     </div>
   </v-col>
 </v-container>
@@ -210,7 +219,7 @@ setup(){
   background-color: #f5f5f5;
 }
 #services{
-  background: brown;
+
 width: 300px;
 }
 </style>
