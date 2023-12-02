@@ -105,12 +105,25 @@
   <v-col cols="12" sm="12" id="myservices">
     <div class="d-flex justify-center mb-6">
       <v-btn color="#FBDF7E" class="mr-2">All</v-btn>
-      <v-btn class="mr-2" variant="tonal">Web Design</v-btn>
-      <v-btn class="mr-2" variant="tonal">Front Design</v-btn>
-      <v-btn class="mr-2" variant="tonal"> Photography</v-btn>
-      <v-btn variant="tonal"> Illustration</v-btn>
+      <v-btn class="mr-2" variant="tonal">Website and design</v-btn>
+      <v-btn class="mr-2" variant="tonal">Mobile Apps</v-btn>
+      <v-btn class="mr-2" variant="tonal">APIs</v-btn>
     </div>
   </v-col>
+  <v-col cols="12" class="imgHover">  <v-row class="fill-width" align=center justify="space-between">
+    <template v-for="(item,i) in items" :key="i">
+      <v-col cols="12" sm="4">
+        <v-hover  v-slot="{isHovering,props}"><v-card elevation="isHovering?12:2" :class="{'on-hover':isHovering}" v-bind="props">
+<v-img :src="item.img" height="100vh"
+        cover></v-img>
+        </v-card></v-hover>
+
+      </v-col>
+
+    </template>
+  </v-row >
+  </v-col>
+
 </v-container>
 </v-app>
 </template>
@@ -129,11 +142,24 @@ setup(){
       slider2:50,
       items: [
         {
-          img: "im1.jpg",
+          img: "s1.jpg",
         },
         {
-          img: "im2.jpg",
-        }]
+          img: "s2.jpg",
+        },
+        {
+          img: "s6.jpg",
+        },
+        {
+          img: "so1.jpeg",
+        },
+        {
+          img: "so2.jpeg",
+        },
+        {
+          img: "so3.jpeg",
+        },
+        ]
     }
 
 },
