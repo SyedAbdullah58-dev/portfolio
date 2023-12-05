@@ -17,16 +17,16 @@
      </div>
    </v-col>
    <v-col cols="5">
-     <div style="position: relative; z-index: 9999" class="mt-16">
-       <v-avatar  class="profile avatar-shadow" color="grey" size="300">
-         <v-img  src="web3.jpg" ></v-img></v-avatar>
+     <div style="position: relative; z-index: 9999; " class="mt-16">
+       <v-avatar   color="grey" size="300">
+         <v-img class="d-flex" src="dp.jpg" cover></v-img></v-avatar>
      </div>
    </v-col>
  </v-row>
 </div>
 <v-col cols="12" class="mt-16" id="about">
   <div><v-row>
-    <v-col cols="12" sm="6"><div>  <v-img class="egg" src="im1.jpeg" contain max-height="300"></v-img></div></v-col>
+    <v-col cols="12" sm="6"><div>  <v-img class="egg" src="im1.jpeg" max-height="300"  contain cover ></v-img></div></v-col>
     <v-col cols="12" sm="6">
       <h5 class="mt-16">About Me</h5>
       <div style="width: 120px">
@@ -113,10 +113,23 @@
   <v-col cols="12" class="imgHover">  <v-row class="fill-width" align=center justify="space-between">
     <template v-for="(item,i) in items" :key="i">
       <v-col cols="12" sm="4">
-        <v-hover  v-slot="{isHovering,props}"><v-card  :class="{'on-hover':isHovering}" v-bind="props">
+        <v-hover  v-slot="{isHovering,props}"><v-card  @click="openDialog(item.img)" :class="{'on-hover':isHovering}" v-bind="props">
 <v-img :src="item.img"
         cover></v-img>
         </v-card></v-hover>
+        <v-dialog v-model="dialog" max-width="60%" max-height="1000px">
+          <v-card>
+            <v-card   v-bind="props">
+              <v-img :src="selectedImage"
+                    ></v-img>
+            </v-card>
+            <v-card-title>Expanded Content</v-card-title>
+
+            <v-card-actions>
+              <v-btn color="primary" @click="closeDialog">Close</v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
       </v-col>
     </template>
   </v-row >
@@ -162,18 +175,23 @@ import MyContact from "@/components/MyContact.vue";
 
 export default defineComponent({
   name: 'HomeView',
+  data(){return {  dialog: false,selectedImage: null,}
+  ;},
 setup(){
     return{
       slider2:50,
       items: [
         {
           img: "web1.jpg",
+          desc: "Employee Access Portal"
         },
         {
           img: "web2.jpg",
+          desc: "Employee Access Portal"
         },
         {
           img: "web3.jpg",
+          desc: "Employee Access Portal"
         },
           {
           img: "s1.jpg",
@@ -202,6 +220,16 @@ setup(){
 
     NavBar,
   },
+  methods :{
+    openDialog(image) {
+      this.dialog = true;
+      this.selectedImage=image;
+    },
+    closeDialog() {
+      this.selectedImage=null;
+      this.dialog = false;
+    },
+  }
 });
 </script>
 <style scoped>
