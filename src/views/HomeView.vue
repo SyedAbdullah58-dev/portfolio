@@ -113,7 +113,7 @@
   <v-col cols="12" class="imgHover">  <v-row class="fill-width" align=center justify="space-between">
     <template v-for="(item,i) in items" :key="i">
       <v-col cols="12" sm="4">
-        <v-hover  v-slot="{isHovering,props}"><v-card  @click="openDialog(item.img)" :class="{'on-hover':isHovering}" v-bind="props">
+        <v-hover  v-slot="{isHovering,props}"><v-card  @click="openDialog(item.img,item.desc)" :class="{'on-hover':isHovering}" v-bind="props">
 <v-img :src="item.img"
         cover></v-img>
         </v-card></v-hover>
@@ -123,7 +123,7 @@
               <v-img :src="selectedImage"
                     ></v-img>
             </v-card>
-            <v-card-title>Expanded Content</v-card-title>
+            <v-card-title>{{projectDescription}}</v-card-title>
 
             <v-card-actions>
               <v-btn color="primary" @click="closeDialog">Close</v-btn>
@@ -159,7 +159,6 @@
     </div>
   </v-col>
 <MyContact></MyContact>
-
 </v-container>
 </v-app>
 </template>
@@ -175,7 +174,7 @@ import MyContact from "@/components/MyContact.vue";
 
 export default defineComponent({
   name: 'HomeView',
-  data(){return {  dialog: false,selectedImage: null,}
+  data(){return {  dialog: false,selectedImage: null, projectDescription:""}
   ;},
 setup(){
     return{
@@ -195,21 +194,27 @@ setup(){
         },
           {
           img: "s1.jpg",
+            desc: "SocialMedia App"
         },
         {
           img: "s2.jpg",
+          desc: "SocialMedia App"
         },
         {
           img: "s6.jpg",
+          desc: "SocialMedia App"
         },
         {
           img: "so1.jpeg",
+          desc: "Sold App - Buying & Selling with SocialMedia Features"
         },
         {
           img: "so2.jpeg",
+          desc: "Sold App - Buying & Selling with SocialMedia Features"
         },
         {
           img: "so3.jpeg",
+          desc: "Sold App - Buying & Selling with SocialMedia Features"
         },
         ]
     }
@@ -221,13 +226,15 @@ setup(){
     NavBar,
   },
   methods :{
-    openDialog(image) {
+    openDialog(image,desc) {
       this.dialog = true;
       this.selectedImage=image;
+      this.projectDescription=desc;
     },
     closeDialog() {
       this.selectedImage=null;
       this.dialog = false;
+      this.projectDescription=null;
     },
   }
 });
