@@ -236,7 +236,7 @@ setup(){
           desc: "SocialMedia App"
         },
         {
-          img: "s10.jpg",
+          img: "s10.JPG",
           desc: "SocialMedia App"
         },
         {
@@ -288,11 +288,11 @@ setup(){
           desc: "SocialMedia App"
         },
         {
-          img: "s10.jpg",
+          img: "s10.JPG",
           desc: "SocialMedia App"
         },
         {
-          img: "s3.JPG",
+          img: "s3.jpg",
           desc: "SocialMedia App"
         },
         {
