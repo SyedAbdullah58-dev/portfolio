@@ -18,7 +18,7 @@
         <h4 class="mt-n4">I am a Software Engineer</h4>
         <h4 class="">Turning your Idea into reality</h4>
         <p class="text-grey">
-          Passionate software engineer with a knack for building cutting-edge applications using the latest technologies. With expertise in<span style="font-weight: bold"> C#, Dart, Flutter,.NET Core , and SQL Server</span>, I bring a wealth of knowledge to every project I undertake. Whether it's developing robust backend systems or creating engaging user interfaces, I'm always up for a challenge.
+          Passionate software engineer with a knack for building cutting-edge applications using the latest technologies. With expertise in<span style="font-weight: bold"> C#, Dart, Flutter, .NET Core, Vue.js ,and SQL Server</span>, I bring a wealth of knowledge to every project I undertake. Whether it's developing robust backend systems or creating engaging user interfaces, I'm always up for a challenge.
         </p>
         <br />
         <p class="text-grey">

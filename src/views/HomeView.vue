@@ -7,7 +7,7 @@
      <h1 class="text-grey">Hello,</h1>
      <h1 class="text-white">I'M Syed Abdullah</h1>
      <span class="text-grey">Website and Mobile App Developer</span><br />
-     <v-btn tile dark class="text-yellow mt-8" variant="outlined">
+     <v-btn tile dark class="text-yellow mt-8" variant="outlined" href="https://www.linkedin.com/in/syed-abdullah-software-engineer/" target="_blank">
        Contact me
      </v-btn>
    </div></v-col>
@@ -26,7 +26,7 @@
 </div>
 <MyAbout></MyAbout>
   <div class="text-center mt-4">
-<h2>What are my Service?</h2>
+<h2>What are my Services?</h2>
     <div style="width: 120px; margin: 0 auto">
       <v-slider
           v-model="slider2"
@@ -42,6 +42,7 @@
           <div class="child">
             <v-btn
                 icon="fas fa-laptop"
+                style="justify-content: center"
                 color="#FBDF7E"
                 class="text-white"
             ></v-btn>
@@ -74,10 +75,10 @@
   </v-col>
   <v-col cols="12" sm="12" id="myservices">
     <div class="d-flex justify-center mb-6">
-      <v-btn color="#FBDF7E" class="mr-2" @click="selectAll()">All</v-btn>
-      <v-btn class="mr-2" @click="selectWeb()">Website and design</v-btn>
-      <v-btn class="mr-2" variant="tonal">Mobile Apps</v-btn>
-      <v-btn class="mr-2" variant="tonal">APIs</v-btn>
+      <v-btn :color="computedAllBtnClr" class="mr-2" @click="selectAll()">All</v-btn>
+      <v-btn  :color="computedWebBtnClr" class="mr-2" @click="selectWeb()">Website and design</v-btn>
+      <v-btn :color="computedMobileBtnClr" class="mr-2" @click="selectMob()">Mobile Apps</v-btn>
+
     </div>
   </v-col>
   <v-col  cols="12" class="imgHover">
@@ -129,15 +130,34 @@
 
     </template>
   </v-row >
+    <v-row v-if="selectedMob" class="fill-width" align=center justify="space-between">
+    <template v-for="(mobItem,i) in mobItems" :key="i">
+      <v-col   cols="12" sm="4">
+        <v-hover  v-slot="{isHovering,props}"><v-card  @click="openDialog(mobItem.img,mobItem.desc)" :class="{'on-hover':isHovering}" v-bind="props">
+<v-img :src="mobItem.img"
+        cover></v-img>
+        </v-card></v-hover>
+        <v-dialog v-model="dialog" max-width="60%" max-height="1000px">
+          <v-card>
+            <v-card   v-bind="props">
+              <v-img :src="selectedImage"
+                    ></v-img>
+            </v-card>
+            <v-card-title>{{projectDescription}}</v-card-title>
+
+            <v-card-actions>
+              <v-btn color="primary" @click="closeDialog">Close</v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
+      </v-col>
+
+    </template>
+  </v-row >
   </v-col>
 
-  <v-col cols="12" sm="12">
-    <div class="d-flex justify-center mb-6">
-      <v-btn color="#FBDF7E" class="mt-4">Load More</v-btn>
-    </div>
-  </v-col>
-  <v-divider></v-divider>
-  <v-col cols="12" id="biog">
+
+  <v-col style="padding-top: 30px" cols="12" id="biog">
     <div class="hire">
       <v-row>
         <v-col cols="12" sm="8">
@@ -167,9 +187,29 @@ import NavBar from "@/components/NavBar.vue";
 import MyContact from "@/components/MyContact.vue";
 import MyAbout from "@/components/MyAbout.vue";
 
+
 export default defineComponent({
   name: 'HomeView',
-  data(){return {  dialog: false,selectedImage: null, projectDescription:"", selectedAll:true, selectedWeb:false,}
+  computed: {
+    computedAllBtnClr() {
+      return this.selectedAll ? '#FBDF7E' : 'grey';
+    },
+    computedWebBtnClr() {
+      return this.selectedWeb? '#FBDF7E' : 'grey';
+    },
+    computedApiBtnClr() {
+      return this.selectedApi? '#FBDF7E' : 'grey';
+    },
+    computedMobileBtnClr() {
+      return this.selectedMob? '#FBDF7E' : 'grey';
+    },
+  },
+  data(){return {  dialog: false,selectedImage: null, projectDescription:"",
+    selectedAll:true,
+    selectedWeb:false,
+    selectedMob:false,
+    selectedApi:false,
+  }
   ;},
 setup(){
     return{
@@ -237,10 +277,62 @@ setup(){
           img: "web6.jpg",
           desc: "Employee Access Portal"
         },
-
-      ]
+      ],
+      mobItems: [
+        {
+          img: "s1.jpg",
+          desc: "SocialMedia App"
+        },
+        {
+          img: "s2.jpg",
+          desc: "SocialMedia App"
+        },
+        {
+          img: "s10.jpg",
+          desc: "SocialMedia App"
+        },
+        {
+          img: "s3.jpg",
+          desc: "SocialMedia App"
+        },
+        {
+          img: "s4.jpg",
+          desc: "SocialMedia App"
+        },
+        {
+          img: "s5.jpg",
+          desc: "SocialMedia App"
+        },
+        {
+          img: "s6.jpg",
+          desc: "SocialMedia App"
+        },
+        {
+          img: "so1.jpeg",
+          desc: "Sold App - Buying & Selling with SocialMedia Features"
+        },
+        {
+          img: "so2.jpeg",
+          desc: "Sold App - Buying & Selling with SocialMedia Features"
+        },
+        {
+          img: "so3.jpeg",
+          desc: "Sold App - Buying & Selling with SocialMedia Features"
+        },
+        {
+          img: "so4.jpeg",
+          desc: "Sold App - Buying & Selling with SocialMedia Features"
+        },
+        {
+          img: "so5.jpeg",
+          desc: "Sold App - Buying & Selling with SocialMedia Features"
+        },
+        {
+          img: "so6.jpeg",
+          desc: "Sold App - Buying & Selling with SocialMedia Features"
+        },
+      ],
     }
-
 },
   components: {
     MyAbout,
@@ -261,12 +353,28 @@ setup(){
     },
     selectAll(){
       this.selectedWeb=false;
+      this.selectedMob=false;
+      this.selectedApi=false;
       this.selectedAll=true;
     }
     ,selectWeb(){
       this.selectedAll=false;
+      this.selectedMob=false;
+      this.selectedApi=false;
       this.selectedWeb=true;
     }
+  ,selectMob(){
+    this.selectedAll=false;
+    this.selectedApi=false;
+    this.selectedWeb=false;
+      this.selectedMob=true;
+  }
+  ,selectApi(){
+    this.selectedAll=false;
+    this.selectedWeb=false;
+    this.selectedMob=false;
+      this.selectedApi=true;
+  }
   }
 });
 </script>
