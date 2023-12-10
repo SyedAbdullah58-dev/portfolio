@@ -374,7 +374,8 @@ setup(){
     this.selectedWeb=false;
     this.selectedMob=false;
       this.selectedApi=true;
-  }
+  },
+
   }
 });
 </script>

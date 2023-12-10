@@ -28,7 +28,7 @@
 
           Let's connect to discuss how my skills and expertise can help drive your organization's success.
         </p>
-        <v-btn tile dark color="yellow" class="mt-4">
+        <v-btn tile dark color="yellow" class="mt-4" href="https://drive.google.com/file/d/1Q7EEIGyUekuIxs4aEiiWAepjJz_zPyzA/view?usp=sharing" target="_blank">
           Download Resume
         </v-btn>
       </v-col>
@@ -36,6 +36,9 @@
   </v-col>
 </template>
 
+<script>
+
+</script>
 <style scoped>
 .egg {
   display: block;
