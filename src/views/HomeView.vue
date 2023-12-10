@@ -24,37 +24,7 @@
    </v-col>
  </v-row>
 </div>
-<v-col cols="12" class="mt-16" id="about">
-  <div><v-row>
-    <v-col cols="12" sm="6"><div>  <v-img class="egg" src="im1.jpeg" max-height="300"  contain cover ></v-img></div></v-col>
-    <v-col cols="12" sm="6">
-      <h5 class="mt-16">About Me</h5>
-      <div style="width: 120px">
-        <v-slider
-            v-model="slider2"
-            color="yellow"
-
-        ></v-slider>
-      </div>
-   <h4 class="mt-n4">I am a Software Engineer</h4>
-      <h4 class="">Turning your Idea into reality</h4>
-      <p class="text-grey">
-        Passionate software engineer with a knack for building cutting-edge applications using the latest technologies. With expertise in<span style="font-weight: bold"> C#, Dart, Flutter,.NET Core , and SQL Server</span>, I bring a wealth of knowledge to every project I undertake. Whether it's developing robust backend systems or creating engaging user interfaces, I'm always up for a challenge.
-      </p>
-      <br />
-      <p class="text-grey">
-        I take pride in writing clean, efficient code that delivers the best possible performance. My ability to learn quickly and adapt to new technologies has enabled me to stay ahead of the curve in a constantly evolving industry.
-
-        As a skilled problem-solver and team player, I thrive in collaborative environments and enjoy working with cross-functional teams to deliver exceptional results. With a track record of delivering high-quality work on time and on budget, I'm confident in my ability to meet and exceed your expectations.
-
-        Let's connect to discuss how my skills and expertise can help drive your organization's success.
-      </p>
-      <v-btn tile dark color="yellow" class="mt-4">
-        Download Resume
-      </v-btn>
-    </v-col>
-  </v-row></div>
-</v-col>
+<MyAbout></MyAbout>
   <div class="text-center mt-4">
 <h2>What are my Service?</h2>
     <div style="width: 120px; margin: 0 auto">
@@ -104,15 +74,16 @@
   </v-col>
   <v-col cols="12" sm="12" id="myservices">
     <div class="d-flex justify-center mb-6">
-      <v-btn color="#FBDF7E" class="mr-2">All</v-btn>
-      <v-btn class="mr-2" variant="tonal">Website and design</v-btn>
+      <v-btn color="#FBDF7E" class="mr-2" @click="selectAll()">All</v-btn>
+      <v-btn class="mr-2" @click="selectWeb()">Website and design</v-btn>
       <v-btn class="mr-2" variant="tonal">Mobile Apps</v-btn>
       <v-btn class="mr-2" variant="tonal">APIs</v-btn>
     </div>
   </v-col>
-  <v-col cols="12" class="imgHover">  <v-row class="fill-width" align=center justify="space-between">
+  <v-col  cols="12" class="imgHover">
+    <v-row v-if="selectedAll" class="fill-width" align=center justify="space-between">
     <template v-for="(item,i) in items" :key="i">
-      <v-col cols="12" sm="4">
+      <v-col   cols="12" sm="4">
         <v-hover  v-slot="{isHovering,props}"><v-card  @click="openDialog(item.img,item.desc)" :class="{'on-hover':isHovering}" v-bind="props">
 <v-img :src="item.img"
         cover></v-img>
@@ -131,6 +102,31 @@
           </v-card>
         </v-dialog>
       </v-col>
+
+    </template>
+  </v-row >
+    <v-row v-if="selectedWeb" class="fill-width" align=center justify="space-between">
+    <template v-for="(webItem,i) in webItems" :key="i">
+      <v-col   cols="12" sm="4">
+        <v-hover  v-slot="{isHovering,props}"><v-card  @click="openDialog(webItem.img,webItem.desc)" :class="{'on-hover':isHovering}" v-bind="props">
+<v-img :src="webItem.img"
+        cover></v-img>
+        </v-card></v-hover>
+        <v-dialog v-model="dialog" max-width="60%" max-height="1000px">
+          <v-card>
+            <v-card   v-bind="props">
+              <v-img :src="selectedImage"
+                    ></v-img>
+            </v-card>
+            <v-card-title>{{projectDescription}}</v-card-title>
+
+            <v-card-actions>
+              <v-btn color="primary" @click="closeDialog">Close</v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
+      </v-col>
+
     </template>
   </v-row >
   </v-col>
@@ -169,10 +165,11 @@ import { defineComponent } from 'vue';
 import NavBar from "@/components/NavBar.vue";
 
 import MyContact from "@/components/MyContact.vue";
+import MyAbout from "@/components/MyAbout.vue";
 
 export default defineComponent({
   name: 'HomeView',
-  data(){return {  dialog: false,selectedImage: null, projectDescription:""}
+  data(){return {  dialog: false,selectedImage: null, projectDescription:"", selectedAll:true, selectedWeb:false,}
   ;},
 setup(){
     return{
@@ -199,7 +196,7 @@ setup(){
           desc: "SocialMedia App"
         },
         {
-          img: "s6.jpg",
+          img: "s10.jpg",
           desc: "SocialMedia App"
         },
         {
@@ -214,11 +211,39 @@ setup(){
           img: "so3.jpeg",
           desc: "Sold App - Buying & Selling with SocialMedia Features"
         },
-        ]
+        ],
+      webItems: [
+        {
+          img: "web1.jpg",
+          desc: "Employee Access Portal"
+        },
+        {
+          img: "web2.jpg",
+          desc: "Employee Access Portal"
+        },
+        {
+          img: "web3.jpg",
+          desc: "Employee Access Portal"
+        },
+        {
+          img: "web4.jpg",
+          desc: "Employee Access Portal"
+        },
+        {
+          img: "web5.jpg",
+          desc: "Employee Access Portal"
+        },
+        {
+          img: "web6.jpg",
+          desc: "Employee Access Portal"
+        },
+
+      ]
     }
 
 },
   components: {
+    MyAbout,
     MyContact,
 
     NavBar,
@@ -234,6 +259,14 @@ setup(){
       this.dialog = false;
       this.projectDescription=null;
     },
+    selectAll(){
+      this.selectedWeb=false;
+      this.selectedAll=true;
+    }
+    ,selectWeb(){
+      this.selectedAll=false;
+      this.selectedWeb=true;
+    }
   }
 });
 </script>
