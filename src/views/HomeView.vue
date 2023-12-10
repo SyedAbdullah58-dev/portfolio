@@ -216,15 +216,15 @@ setup(){
       slider2:50,
       items: [
         {
-          img: "web1.jpg",
+          img: "web1.JPG",
           desc: "Employee Access Portal"
         },
         {
-          img: "web2.jpg",
+          img: "web2.JPG",
           desc: "Employee Access Portal"
         },
         {
-          img: "web3.jpg",
+          img: "web3.JPG",
           desc: "Employee Access Portal"
         },
           {
@@ -254,27 +254,27 @@ setup(){
         ],
       webItems: [
         {
-          img: "web1.jpg",
+          img: "web1.JPG",
           desc: "Employee Access Portal"
         },
         {
-          img: "web2.jpg",
+          img: "web2.JPG",
           desc: "Employee Access Portal"
         },
         {
-          img: "web3.jpg",
+          img: "web3.JPG",
           desc: "Employee Access Portal"
         },
         {
-          img: "web4.jpg",
+          img: "web4.JPG",
           desc: "Employee Access Portal"
         },
         {
-          img: "web5.jpg",
+          img: "web5.JPG",
           desc: "Employee Access Portal"
         },
         {
-          img: "web6.jpg",
+          img: "web6.JPG",
           desc: "Employee Access Portal"
         },
       ],
@@ -292,7 +292,7 @@ setup(){
           desc: "SocialMedia App"
         },
         {
-          img: "s3.jpg",
+          img: "s3.JPG",
           desc: "SocialMedia App"
         },
         {
