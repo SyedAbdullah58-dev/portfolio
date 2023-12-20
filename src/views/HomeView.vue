@@ -3,7 +3,7 @@
   <NavBar></NavBar>
 <v-container fluid>  <div class="head">
  <v-row>
-   <v-col cols="5"> <div style="position: relative" class="mt-15">
+   <v-col xs="12" > <div  style="position: relative; background: brown" class="mt-15 responsive-text fill-width">
      <h1 class="text-grey">Hello,</h1>
      <h1 class="text-white">I'M Syed Abdullah</h1>
      <span class="text-grey">Website and Mobile App Developer</span><br />
@@ -16,10 +16,10 @@
        <v-icon>fas fa-angle-double-down</v-icon>
      </div>
    </v-col>
-   <v-col cols="5">
-     <div style="position: relative; z-index: 9999; " class="mt-16">
-       <v-avatar   color="grey" size="300">
-         <v-img class="d-flex" src="dp.jpg" cover></v-img></v-avatar>
+   <v-col md="5" xs="5">
+     <div style="position: relative; background: coral; z-index: 9999; " class="mt-15">
+       <v-avatar md="5" sm="2" xs="4" color="grey" size="300" class="hidden-sm-and-down">
+         <v-img sm="2" class="d-flex" src="dp.jpg" cover></v-img></v-avatar>
      </div>
    </v-col>
  </v-row>
@@ -468,5 +468,21 @@ setup(){
 }
 #services{
 width: 300px;
+}
+.responsive-text {
+  font-size: 1.2rem; /* Default font size for larger screens */
+}
+
+/* Responsive Typography Classes */
+@include breakpoint(sm-and-down) {
+  .responsive-text {
+    font-size: 0.5rem; /* Adjust font size for small screens */
+  }
+}
+
+@include breakpoint(xm-only) {
+  .responsive-text {
+    font-size: 0.3rem; /* Adjust font size for extra small screens */
+  }
 }
 </style>

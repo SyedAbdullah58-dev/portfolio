@@ -5,7 +5,7 @@
 <template>
   <v-col cols="12" class="mt-16" id="about">
     <div><v-row>
-      <v-col cols="12" sm="6"><div>  <v-img class="egg" src="im1.jpeg" max-height="300"  contain cover ></v-img></div></v-col>
+      <v-col cols="12" sm="6" ><div>  <v-img class="egg" src="im1.jpeg" max-height="300" min-height="150"  contain cover ></v-img></div></v-col>
       <v-col cols="12" sm="6">
         <h5 class="mt-16">About Me</h5>
         <div style="width: 120px">
@@ -44,7 +44,7 @@
   display: block;
   margin-left: 100px;
   margin-top: 50px;
-  width: 356px;
+  width: 40vh;
   height: 300px;
   background-color: black;
   border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
