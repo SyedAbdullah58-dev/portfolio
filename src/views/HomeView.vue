@@ -3,7 +3,7 @@
   <NavBar></NavBar>
 <v-container fluid>  <div class="head">
  <v-row>
-   <v-col xs="12" > <div  style="position: relative; background: brown" class="mt-15 responsive-text fill-width">
+   <v-col xs="12" > <div  style="position: relative; " class="mt-15 responsive-text fill-width">
      <h1 class="text-grey">Hello,</h1>
      <h1 class="text-white">I'M Syed Abdullah</h1>
      <span class="text-grey">Website and Mobile App Developer</span><br />
@@ -17,7 +17,7 @@
      </div>
    </v-col>
    <v-col md="5" xs="5">
-     <div style="position: relative; background: coral; z-index: 9999; " class="mt-15">
+     <div style="position: relative; z-index: 9999; " class="mt-15">
        <v-avatar md="5" sm="2" xs="4" color="grey" size="300" class="hidden-sm-and-down">
          <v-img sm="2" class="d-flex" src="dp.jpg" cover></v-img></v-avatar>
      </div>
@@ -158,7 +158,7 @@
 
 
   <v-col style="padding-top: 30px" cols="12" id="biog">
-    <div class="hire">
+    <div class="hire hidden-sm-and-down">
       <v-row>
         <v-col cols="12" sm="8">
           <h1 class="mt-9">Hire me for your awesome project</h1>
@@ -376,7 +376,10 @@ setup(){
       this.selectedApi=true;
   },
 
+  },  mounted() {
+    console.log("its mounted");
   }
+
 });
 </script>
 <style scoped>
@@ -438,7 +441,7 @@ setup(){
 }
 .first {
   width: 100%;
-  height: 280px;
+  height: 20%;
   text-align: center;
   padding: 2rem 2rem;
 }
@@ -462,9 +465,9 @@ setup(){
 .hire {
   width: 110%;
   height: 200px;
-  padding: 0 200px;
+
   background-color: #e9e9e9;
-  margin-top: 20px;
+  margin-top: 2%;
 }
 #services{
 width: 300px;

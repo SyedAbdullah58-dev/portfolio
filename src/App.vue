@@ -10,7 +10,9 @@
 
 export default {
   name: 'App',
-
+  mounted() {
+    document.title="Syed Abdullah"
+  },
   data: () => ({
     //
   }),

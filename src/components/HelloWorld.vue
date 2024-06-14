@@ -96,7 +96,6 @@
 
 export default {
   name: 'HelloWorld',
-
   data: () => ({
     ecosystem: [
       {
@@ -145,5 +144,6 @@ export default {
       },
     ],
   }),
+
 }
 </script>
